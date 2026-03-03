@@ -406,40 +406,11 @@ body.rtl .aida-notice {
     border-radius: 18px; 
 }
 
-/* Stats Mockup */
-.aida-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.aida-stat-box {
-    background: #f1f5f9;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.aida-stat-value {
-    display: block;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--aida-primary);
-}
-
-.aida-stat-label {
-    font-size: 11px;
-    color: var(--aida-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
 /* WP Overrides */
 .aida-wrap #setting-error-settings_updated {
-    max-width: 1000px;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     border-left-color: var(--aida-primary);
 }

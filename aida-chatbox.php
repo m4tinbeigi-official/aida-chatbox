@@ -185,28 +185,7 @@ function aida_settings_page()
                         </div>
                     </div>
 
-                    <div class="aida-card" style="margin-bottom: 24px;">
-                        <h2>
-                            <?php esc_html_e('آمار استفاده (تستی)', 'aida-chatbox'); ?>
-                        </h2>
-                        <div class="aida-stats-grid">
-                            <div class="aida-stat-box">
-                                <span class="aida-stat-value">۱,۲۸۰</span>
-                                <span class="aida-stat-label">
-                                    <?php esc_html_e('گفتگوها', 'aida-chatbox'); ?>
-                                </span>
-                            </div>
-                            <div class="aida-stat-box">
-                                <span class="aida-stat-value">۹۴٪</span>
-                                <span class="aida-stat-label">
-                                    <?php esc_html_e('رضایت', 'aida-chatbox'); ?>
-                                </span>
-                            </div>
-                        </div>
-                        <p style="font-size: 11px; text-align: center; color: var(--aida-text-muted); margin-top: 15px;">
-                            <?php esc_html_e('این آمار به زودی از پنل ایدا سینک خواهد شد.', 'aida-chatbox'); ?>
-                        </p>
-                    </div>
+
 
                     <div class="aida-card" style="margin-bottom: 24px;">
                         <h2><?php esc_html_e('دسترسی سریع', 'aida-chatbox'); ?></h2>
