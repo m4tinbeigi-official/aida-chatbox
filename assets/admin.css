@@ -27,6 +27,13 @@
     }
 }
 
+/* Fix Admin Sidebar Icon Size */
+#adminmenu .toplevel_page_aida-settings .wp-menu-image img {
+    padding: 2px 0;
+    max-height: 20px !important;
+    width: auto !important;
+}
+
 .aida-wrap {
     max-width: 1100px;
     margin: 30px auto;
