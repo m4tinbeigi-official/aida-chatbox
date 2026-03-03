@@ -1,0 +1,319 @@
+:root {
+    --aida-primary: #4F8EF7;
+    --aida-secondary: #8B5CF6;
+    --aida-gradient: linear-gradient(135deg, var(--aida-primary), var(--aida-secondary));
+    --aida-bg: #f8fafc;
+    --aida-card-bg: #ffffff;
+    --aida-text-main: #0f172a;
+    --aida-text-muted: #64748b;
+    --aida-border: #e2e8f0;
+    --aida-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --aida-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --aida-radius: 12px;
+}
+
+/* Dark mode compatibility (minimal) */
+@media (prefers-color-scheme: dark) {
+    body.aida-dark-mode-support {
+        --aida-bg: #0f172a;
+        --aida-card-bg: #1e293b;
+        --aida-text-main: #f8fafc;
+        --aida-text-muted: #94a3b8;
+        --aida-border: #334155;
+    }
+}
+
+.aida-wrap {
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--aida-text-main);
+}
+
+.aida-wrap * {
+    box-sizing: border-box;
+}
+
+/* Header */
+.aida-header {
+    display: flex;
+    align-items: center;
+    background: var(--aida-card-bg);
+    padding: 24px 32px;
+    border-radius: var(--aida-radius);
+    box-shadow: var(--aida-shadow);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.aida-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--aida-gradient);
+}
+
+.aida-header img {
+    height: 56px;
+    width: 56px;
+    border-radius: 12px;
+    box-shadow: var(--aida-shadow);
+}
+
+body.rtl .aida-header img {
+    margin-left: 20px;
+}
+body:not(.rtl) .aida-header img {
+    margin-right: 20px;
+}
+
+.aida-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--aida-text-main);
+}
+
+.aida-header p {
+    margin: 0;
+    color: var(--aida-text-muted);
+    font-size: 14px;
+}
+
+/* Grid Layout */
+.aida-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .aida-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.aida-card {
+    background: var(--aida-card-bg);
+    border-radius: var(--aida-radius);
+    box-shadow: var(--aida-shadow);
+    padding: 32px;
+    border: 1px solid var(--aida-border);
+}
+
+.aida-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--aida-border);
+}
+
+/* Form Styles */
+.aida-form-group {
+    margin-bottom: 24px;
+}
+
+.aida-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--aida-text-main);
+}
+
+.aida-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--aida-border);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: var(--aida-bg);
+    color: var(--aida-text-main);
+}
+
+.aida-input:focus {
+    outline: none;
+    border-color: var(--aida-primary);
+    box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.2);
+    background: var(--aida-card-bg);
+}
+
+.aida-help-text {
+    font-size: 13px;
+    color: var(--aida-text-muted);
+    margin-top: 8px;
+    display: block;
+}
+
+/* Select Styling */
+.aida-select-wrapper {
+    position: relative;
+}
+
+.aida-select-wrapper select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.aida-select-wrapper::after {
+    content: "▼";
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--aida-text-muted);
+}
+
+body.rtl .aida-select-wrapper::after {
+    left: 16px;
+}
+
+body:not(.rtl) .aida-select-wrapper::after {
+    right: 16px;
+}
+
+/* Radio / Toggle Styles */
+.aida-toggle-group {
+    display: flex;
+    gap: 12px;
+}
+
+.aida-toggle-label {
+    flex: 1;
+    cursor: pointer;
+}
+
+.aida-toggle-label input {
+    display: none;
+}
+
+.aida-toggle-content {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: var(--aida-bg);
+    border: 1px solid var(--aida-border);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: var(--aida-text-muted);
+}
+
+.aida-toggle-label input:checked + .aida-toggle-content {
+    background: var(--aida-primary);
+    color: white;
+    border-color: var(--aida-primary);
+    box-shadow: 0 4px 10px rgba(79, 142, 247, 0.3);
+}
+
+/* Buttons */
+.aida-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--aida-gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(79, 142, 247, 0.4);
+}
+
+.aida-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 142, 247, 0.5);
+    color: white;
+}
+
+.aida-submit-wrapper {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--aida-border);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Sidebar Links */
+.aida-sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: var(--aida-bg);
+    border: 1px solid var(--aida-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: var(--aida-text-main);
+    transition: all 0.2s;
+}
+
+.aida-sidebar-item:hover {
+    border-color: var(--aida-primary);
+    background: #fff;
+    transform: translateX(4px);
+    box-shadow: var(--aida-shadow);
+}
+body.rtl .aida-sidebar-item:hover {
+    transform: translateX(-4px);
+}
+
+.aida-sidebar-item-icon {
+    font-size: 20px;
+}
+
+body.rtl .aida-sidebar-item-icon {
+    margin-left: 12px;
+}
+body:not(.rtl) .aida-sidebar-item-icon {
+    margin-right: 12px;
+}
+
+.aida-sidebar-item-text {
+    font-weight: 600;
+}
+
+/* Notice */
+.aida-notice {
+    background: #fffbea;
+    border-left: 4px solid #f59e0b;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--aida-shadow);
+}
+body.rtl .aida-notice {
+    border-left: none;
+    border-right: 4px solid #f59e0b;
+    border-radius: 8px 0 0 8px;
+}
+.aida-notice p {
+    margin: 0;
+    color: #b45309;
+    font-weight: 500;
+}
+
+/* WP Overrides */
+.aida-wrap #setting-error-settings_updated {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    border-left-color: var(--aida-primary);
+}
