@@ -59,13 +59,14 @@ function aida_register_settings()
 
 // Enqueue Admin Scripts & Styles
 add_action('admin_enqueue_scripts', 'aida_admin_enqueue');
-function aida_admin_enqueue($hook)
+function aida_admin_enqueue()
 {
-    if ($hook !== 'toplevel_page_aida-settings') {
-        return;
-    }
     wp_enqueue_style('aida-admin-style', AIDA_PLUGIN_URL . 'assets/admin.css', array(), AIDA_VERSION);
-    wp_enqueue_script('aida-admin-script', AIDA_PLUGIN_URL . 'assets/admin.js', array(), AIDA_VERSION, true);
+    // Only load the script on our settings page to avoid conflicts
+    global $pagenow;
+    if (isset($_GET['page']) && $_GET['page'] === 'aida-settings') {
+        wp_enqueue_script('aida-admin-script', AIDA_PLUGIN_URL . 'assets/admin.js', array(), AIDA_VERSION, true);
+    }
 }
 
 // Settings page
