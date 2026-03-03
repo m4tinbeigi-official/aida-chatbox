@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --aida-primary: #4F8EF7;
     --aida-secondary: #8B5CF6;
     --aida-gradient: linear-gradient(135deg, var(--aida-primary), var(--aida-secondary));
-    --aida-bg: #f8fafc;
-    --aida-card-bg: #ffffff;
-    --aida-text-main: #0f172a;
+    --aida-bg: #f3f4f6;
+    --aida-card-bg: rgba(255, 255, 255, 0.7);
+    --aida-glass-bg: rgba(255, 255, 255, 0.4);
+    --aida-text-main: #1e293b;
     --aida-text-muted: #64748b;
-    --aida-border: #e2e8f0;
+    --aida-border: rgba(226, 232, 240, 0.5);
     --aida-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --aida-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --aida-radius: 12px;
+    --aida-radius: 20px;
+    --aida-font: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Dark mode compatibility (minimal) */
@@ -24,10 +28,11 @@
 }
 
 .aida-wrap {
-    max-width: 1000px;
-    margin: 20px auto;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 1100px;
+    margin: 30px auto;
+    font-family: var(--aida-font);
     color: var(--aida-text-main);
+    line-height: 1.6;
 }
 
 .aida-wrap * {
@@ -39,12 +44,15 @@
     display: flex;
     align-items: center;
     background: var(--aida-card-bg);
-    padding: 24px 32px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px 40px;
     border-radius: var(--aida-radius);
-    box-shadow: var(--aida-shadow);
-    margin-bottom: 24px;
+    box-shadow: var(--aida-shadow-lg);
+    margin-bottom: 30px;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--aida-border);
 }
 
 .aida-header::before {
@@ -100,19 +108,27 @@ body:not(.rtl) .aida-header img {
 /* Cards */
 .aida-card {
     background: var(--aida-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: var(--aida-radius);
-    box-shadow: var(--aida-shadow);
-    padding: 32px;
+    box-shadow: var(--aida-shadow-lg);
+    padding: 40px;
     border: 1px solid var(--aida-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aida-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .aida-card h2 {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 800;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--aida-border);
+    letter-spacing: -0.02em;
 }
 
 /* Form Styles */
@@ -252,21 +268,21 @@ body:not(.rtl) .aida-select-wrapper::after {
 .aida-sidebar-item {
     display: flex;
     align-items: center;
-    padding: 16px;
-    background: var(--aida-bg);
+    padding: 18px;
+    background: var(--aida-glass-bg);
     border: 1px solid var(--aida-border);
-    border-radius: 8px;
-    margin-bottom: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
     text-decoration: none;
     color: var(--aida-text-main);
-    transition: all 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .aida-sidebar-item:hover {
     border-color: var(--aida-primary);
     background: #fff;
-    transform: translateX(4px);
-    box-shadow: var(--aida-shadow);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--aida-shadow-lg);
 }
 body.rtl .aida-sidebar-item:hover {
     transform: translateX(-4px);
@@ -290,13 +306,20 @@ body:not(.rtl) .aida-sidebar-item-icon {
 /* Notice */
 .aida-notice {
     background: #fffbea;
-    border-left: 4px solid #f59e0b;
-    padding: 16px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 24px;
+    border-left: 6px solid #f59e0b;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     box-shadow: var(--aida-shadow);
+    animation: aida-pulse 2s infinite;
+}
+
+@keyframes aida-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
 }
 body.rtl .aida-notice {
     border-left: none;
@@ -346,16 +369,22 @@ body.rtl .aida-notice {
 
 .aida-preview-chat {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: var(--aida-gradient);
     border-radius: 50%;
     bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px -3px rgba(79, 142, 247, 0.4);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: aida-float 3s ease-in-out infinite;
+}
+
+@keyframes aida-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 .aida-preview-chat::after {
@@ -371,7 +400,11 @@ body.rtl .aida-notice {
 
 .aida-preview-chat.pos-right { right: 12px; }
 .aida-preview-chat.pos-left { left: 12px; }
-.aida-preview-chat.state-open { width: 80px; height: 32px; border-radius: 16px; }
+.aida-preview-chat.state-open { 
+    width: 100px; 
+    height: 36px; 
+    border-radius: 18px; 
+}
 
 /* Stats Mockup */
 .aida-stats-grid {

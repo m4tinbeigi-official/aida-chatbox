@@ -30,8 +30,8 @@ function aida_admin_menu()
 {
     $icon_url = AIDA_PLUGIN_URL . 'assets/logo.png';
     add_menu_page(
-        __('Aida Chatbox', 'aida-chatbox'),
-        __('Aida Chatbox', 'aida-chatbox'),
+        __('تنظیمات ایدا', 'aida-chatbox'),
+        __('چت‌باکس ایدا', 'aida-chatbox'),
         'manage_options',
         'aida-settings',
         'aida_settings_page',
@@ -81,8 +81,8 @@ function aida_settings_page()
             <div class="aida-header">
                 <img src="<?php echo esc_url($logo_url); ?>" alt="Aida Logo" onerror="this.style.display='none';" />
                 <div>
-                    <h1><?php esc_html_e('Chatbox for Aida', 'aida-chatbox'); ?></h1>
-                    <p><?php esc_html_e('Connect your website to Aida AI and provide instant support to your customers.', 'aida-chatbox'); ?>
+                    <h1><?php esc_html_e('تنظیمات چت‌باکس هوشمند ایدا', 'aida-chatbox'); ?></h1>
+                    <p><?php esc_html_e('با اتصال وب‌سایت خود به هوش مصنوعی ایدا، به صورت ۲۴ ساعته پاسخگوی مشتریان خود باشید.', 'aida-chatbox'); ?>
                     </p>
                 </div>
             </div>
@@ -91,7 +91,7 @@ function aida_settings_page()
                 <div class="aida-notice">
                     <p>
                         <span class="dashicons dashicons-warning" style="margin-top:2px;"></span>
-                        <?php esc_html_e('Action Required: Please enter your Aida API Key to activate the chatbox on your website.', 'aida-chatbox'); ?>
+                        <?php esc_html_e('نیاز به اقدام: لطفاً کد API خود را وارد کنید تا چت‌باکس در سایت شما فعال شود.', 'aida-chatbox'); ?>
                     </p>
                 </div>
             <?php endif; ?>
@@ -100,7 +100,7 @@ function aida_settings_page()
 
                 <!-- Main Settings Column -->
                 <div class="aida-card">
-                    <h2><?php esc_html_e('Configuration', 'aida-chatbox'); ?></h2>
+                    <h2><?php esc_html_e('پیکربندی و اتصال', 'aida-chatbox'); ?></h2>
                     <form method="post" action="options.php">
                         <?php
                         settings_fields('aida_options');
@@ -108,14 +108,14 @@ function aida_settings_page()
                         ?>
 
                         <div class="aida-form-group">
-                            <label for="aida_api_key"><?php esc_html_e('API Key', 'aida-chatbox'); ?></label>
+                            <label for="aida_api_key"><?php esc_html_e('کد API اختصاصی', 'aida-chatbox'); ?></label>
                             <input type="text" id="aida_api_key" name="aida_api_key"
                                 value="<?php echo esc_attr(get_option('aida_api_key')); ?>" class="aida-input"
-                                placeholder="<?php esc_attr_e('e.g., 20AD2PFKSB', 'aida-chatbox'); ?>" />
+                                placeholder="<?php esc_attr_e('مثلاً: 20AD2PFKSB', 'aida-chatbox'); ?>" />
                             <span class="aida-help-text">
                                 <?php
                                 printf(
-                                    esc_html__('Find this in your Aida dashboard under %1$sChannels > Website%2$s.', 'aida-chatbox'),
+                                    esc_html__('این کد را می‌توانید از پنل ایدا بخش %1$sکانال‌ها > وب‌سایت%2$s دریافت کنید.', 'aida-chatbox'),
                                     '<a href="' . esc_url(AIDA_DASHBOARD_URL) . '" target="_blank">',
                                     '</a>'
                                 );
@@ -124,31 +124,32 @@ function aida_settings_page()
                         </div>
 
                         <div class="aida-form-group">
-                            <label><?php esc_html_e('Initial State', 'aida-chatbox'); ?></label>
+                            <label><?php esc_html_e('وضعیت اولیه چت‌باکس', 'aida-chatbox'); ?></label>
                             <div class="aida-toggle-group">
                                 <label class="aida-toggle-label">
                                     <input type="radio" name="aida_initial_state" value="closed" <?php checked(get_option('aida_initial_state', 'closed'), 'closed'); ?>>
-                                    <span class="aida-toggle-content"><?php esc_html_e('Closed', 'aida-chatbox'); ?></span>
+                                    <span
+                                        class="aida-toggle-content"><?php esc_html_e('بسته (حبابی)', 'aida-chatbox'); ?></span>
                                 </label>
                                 <label class="aida-toggle-label">
                                     <input type="radio" name="aida_initial_state" value="open" <?php checked(get_option('aida_initial_state'), 'open'); ?>>
                                     <span
-                                        class="aida-toggle-content"><?php esc_html_e('Open (Expanded)', 'aida-chatbox'); ?></span>
+                                        class="aida-toggle-content"><?php esc_html_e('باز (گسترده)', 'aida-chatbox'); ?></span>
                                 </label>
                             </div>
                             <span
-                                class="aida-help-text"><?php esc_html_e('How the chatbox appears when a user first loads your website.', 'aida-chatbox'); ?></span>
+                                class="aida-help-text"><?php esc_html_e('تعیین می‌کند که در اولین لود صفحه، چت‌باکس به چه صورتی نمایش داده شود.', 'aida-chatbox'); ?></span>
                         </div>
 
                         <div class="aida-form-group">
-                            <label for="aida_position"><?php esc_html_e('Position on Screen', 'aida-chatbox'); ?></label>
+                            <label for="aida_position"><?php esc_html_e('محل قرارگیری در صفحه', 'aida-chatbox'); ?></label>
                             <div class="aida-select-wrapper">
                                 <select id="aida_position" name="aida_position" class="aida-input">
                                     <option value="right" <?php selected(get_option('aida_position', 'right'), 'right'); ?>>
-                                        <?php esc_html_e('Bottom Right', 'aida-chatbox'); ?>
+                                        <?php esc_html_e('پایین سمت راست', 'aida-chatbox'); ?>
                                     </option>
                                     <option value="left" <?php selected(get_option('aida_position'), 'left'); ?>>
-                                        <?php esc_html_e('Bottom Left', 'aida-chatbox'); ?>
+                                        <?php esc_html_e('پایین سمت چپ', 'aida-chatbox'); ?>
                                     </option>
                                 </select>
                             </div>
@@ -156,7 +157,7 @@ function aida_settings_page()
 
                         <div class="aida-submit-wrapper">
                             <button type="submit" class="aida-btn aida-btn-submit">
-                                <?php esc_html_e('Save Changes', 'aida-chatbox'); ?>
+                                <?php esc_html_e('ذخیره تغییرات', 'aida-chatbox'); ?>
                             </button>
                         </div>
                     </form>
@@ -167,10 +168,10 @@ function aida_settings_page()
 
                     <div class="aida-card" style="margin-bottom: 24px;">
                         <h2>
-                            <?php esc_html_e('Live Preview', 'aida-chatbox'); ?>
+                            <?php esc_html_e('پیش‌نمایش زنده', 'aida-chatbox'); ?>
                         </h2>
                         <p style="font-size: 13px; color: var(--aida-text-muted); margin-bottom: 12px;">
-                            <?php esc_html_e('See how the chatbox widget will look and behave on your site.', 'aida-chatbox'); ?>
+                            <?php esc_html_e('تغییرات را به صورت لحظه‌ای مشاهده کنید.', 'aida-chatbox'); ?>
                         </p>
                         <div class="aida-preview-card">
                             <div class="aida-preview-header">
@@ -186,48 +187,49 @@ function aida_settings_page()
 
                     <div class="aida-card" style="margin-bottom: 24px;">
                         <h2>
-                            <?php esc_html_e('Usage Stats', 'aida-chatbox'); ?>
+                            <?php esc_html_e('آمار استفاده (تستی)', 'aida-chatbox'); ?>
                         </h2>
                         <div class="aida-stats-grid">
                             <div class="aida-stat-box">
-                                <span class="aida-stat-value">1,280</span>
+                                <span class="aida-stat-value">۱,۲۸۰</span>
                                 <span class="aida-stat-label">
-                                    <?php esc_html_e('Chats', 'aida-chatbox'); ?>
+                                    <?php esc_html_e('گفتگوها', 'aida-chatbox'); ?>
                                 </span>
                             </div>
                             <div class="aida-stat-box">
-                                <span class="aida-stat-value">94%</span>
+                                <span class="aida-stat-value">۹۴٪</span>
                                 <span class="aida-stat-label">
-                                    <?php esc_html_e('Satisfied', 'aida-chatbox'); ?>
+                                    <?php esc_html_e('رضایت', 'aida-chatbox'); ?>
                                 </span>
                             </div>
                         </div>
                         <p style="font-size: 11px; text-align: center; color: var(--aida-text-muted); margin-top: 15px;">
-                            <?php esc_html_e('Real-time stats from your Aida dashboard.', 'aida-chatbox'); ?>
+                            <?php esc_html_e('این آمار به زودی از پنل ایدا سینک خواهد شد.', 'aida-chatbox'); ?>
                         </p>
                     </div>
 
                     <div class="aida-card" style="margin-bottom: 24px;">
-                        <h2><?php esc_html_e('Quick Links', 'aida-chatbox'); ?></h2>
+                        <h2><?php esc_html_e('دسترسی سریع', 'aida-chatbox'); ?></h2>
 
                         <a href="<?php echo esc_url(AIDA_DASHBOARD_URL); ?>" target="_blank" class="aida-sidebar-item">
                             <span class="dashicons dashicons-dashboard aida-sidebar-item-icon"
                                 style="color: var(--aida-primary);"></span>
                             <span
-                                class="aida-sidebar-item-text"><?php esc_html_e('Aida Dashboard', 'aida-chatbox'); ?></span>
+                                class="aida-sidebar-item-text"><?php esc_html_e('پنل کاربری ایدا', 'aida-chatbox'); ?></span>
                         </a>
 
                         <a href="<?php echo esc_url(AIDA_DOCS_URL); ?>" target="_blank" class="aida-sidebar-item">
                             <span class="dashicons dashicons-media-document aida-sidebar-item-icon"
                                 style="color: var(--aida-secondary);"></span>
                             <span
-                                class="aida-sidebar-item-text"><?php esc_html_e('Documentation', 'aida-chatbox'); ?></span>
+                                class="aida-sidebar-item-text"><?php esc_html_e('مستندات اتصال', 'aida-chatbox'); ?></span>
                         </a>
 
                         <a href="<?php echo esc_url(AIDA_SITE_URL); ?>" target="_blank" class="aida-sidebar-item">
                             <span class="dashicons dashicons-admin-site-alt3 aida-sidebar-item-icon"
                                 style="color: var(--aida-text-muted);"></span>
-                            <span class="aida-sidebar-item-text"><?php esc_html_e('Aida Website', 'aida-chatbox'); ?></span>
+                            <span
+                                class="aida-sidebar-item-text"><?php esc_html_e('سایت اصلی ایدا', 'aida-chatbox'); ?></span>
                         </a>
                     </div>
 
@@ -235,14 +237,14 @@ function aida_settings_page()
                         <span class="dashicons dashicons-heart"
                             style="color: #ef4444; font-size: 32px; width: 32px; height: 32px; margin-bottom: 12px;"></span>
                         <h3 style="margin-top: 0; font-size: 16px; margin-bottom: 8px;">
-                            <?php esc_html_e('Need Help?', 'aida-chatbox'); ?>
+                            <?php esc_html_e('نیاز به راهنمایی دارید؟', 'aida-chatbox'); ?>
                         </h3>
                         <p style="font-size: 13px; color: var(--aida-text-muted); margin: 0; margin-bottom: 16px;">
-                            <?php esc_html_e('Our support team is always ready to assist you with the integration.', 'aida-chatbox'); ?>
+                            <?php esc_html_e('تیم پشتیبانی ما آماده پاسخگویی به سوالات شماست.', 'aida-chatbox'); ?>
                         </p>
                         <a href="https://aidasales.ir" target="_blank" class="aida-btn"
                             style="width: 100%; font-size: 14px; background: var(--aida-card-bg); color: var(--aida-text-main); border: 1px solid var(--aida-border); box-shadow: none;">
-                            <?php esc_html_e('Contact Support', 'aida-chatbox'); ?>
+                            <?php esc_html_e('تماس با پشتیبانی', 'aida-chatbox'); ?>
                         </a>
                     </div>
                 </div>

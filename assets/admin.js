@@ -2,11 +2,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add simple micro-interactions to the save button
     const submitBtn = document.querySelector('.aida-btn-submit');
     if (submitBtn) {
-        submitBtn.addEventListener('click', function(e) {
-            const originalText = this.innerHTML;
-            this.innerHTML = '<span class="dashicons dashicons-update dashicons-spin"></span> Saving...';
-            this.style.opacity = '0.8';
-        });
+        submitBtn.addEventListener('click', function() {
+        if (!submitBtn.classList.contains('loading')) {
+            const originalText = submitBtn.innerHTML;
+            submitBtn.classList.add('loading');
+            submitBtn.innerHTML = '<span class="dashicons dashicons-update spin"></span> در حال ذخیره...';
+            
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.innerHTML = '<span class="dashicons dashicons-yes"></span> ذخیره شد!';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                }, 2000);
+            }, 1000);
+        }
+    });
     }
 
     // Highight input when it has a value on load
