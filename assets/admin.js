@@ -15,13 +15,37 @@ document.addEventListener('DOMContentLoaded', function() {
         apiKeyInput.style.borderColor = 'var(--aida-primary)';
     }
 
-    if (apiKeyInput) {
-        apiKeyInput.addEventListener('input', function() {
-            if (this.value.trim() !== '') {
-                this.style.borderColor = 'var(--aida-primary)';
-            } else {
-                this.style.borderColor = '';
-            }
-        });
+    // Live Preview Logic
+    const positionSelect = document.getElementById('aida_position');
+    const stateRadios = document.querySelectorAll('input[name="aida_initial_state"]');
+    const previewChat = document.querySelector('.aida-preview-chat');
+
+    function updatePreview() {
+        if (!previewChat) return;
+        
+        // Position
+        if (positionSelect.value === 'left') {
+            previewChat.classList.add('pos-left');
+            previewChat.classList.remove('pos-right');
+        } else {
+            previewChat.classList.add('pos-right');
+            previewChat.classList.remove('pos-left');
+        }
+
+        // State
+        const activeState = document.querySelector('input[name="aida_initial_state"]:checked').value;
+        if (activeState === 'open') {
+            previewChat.classList.add('state-open');
+        } else {
+            previewChat.classList.remove('state-open');
+        }
     }
+
+    if (positionSelect) {
+        positionSelect.addEventListener('change', updatePreview);
+    }
+    stateRadios.forEach(radio => radio.addEventListener('change', updatePreview));
+    
+    // Initial call
+    updatePreview();
 });

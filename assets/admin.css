@@ -309,6 +309,99 @@ body.rtl .aida-notice {
     font-weight: 500;
 }
 
+/* Live Preview */
+.aida-preview-card {
+    background: #1e293b;
+    border-radius: var(--aida-radius);
+    padding: 20px;
+    margin-top: 24px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.aida-preview-header {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.aida-preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #475569;
+}
+
+.aida-preview-browser {
+    background: #0f172a;
+    border-radius: 4px;
+    flex-grow: 1;
+    position: relative;
+    border: 1px solid #334155;
+}
+
+.aida-preview-chat {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: var(--aida-gradient);
+    border-radius: 50%;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.aida-preview-chat::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: white;
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyYzAgMi4xNy43NiA0LjE2IDIuMDQgNS43MEwuMTMgMjIuODhjLS4xNS4zNS0uMDUuNzUuMjQgMS4wMy4yOC4yOC42OC4zOCAxLjAzLjI0bDUuMTgtMS45MUM4LjE3IDIzLjI0IDEwLjAyIDI0IDEyIDI0YzUuNTIgMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtMS4zOSAwLTIuNzEtLjMyLTMuODgtLjkxbC0uMjctLjE0LTMuMjYgMS4yIDEuMTEtMy4wMy0uMTUtLjI3QzQuOTQgMTQuNDUgNC41IDEzLjI2IDQuNSAxMmMwLTQuMTQgMy4zNi03LjUgNy41LTcuNXM3LjUgMy4zNiA3LjUgNy41LTMuMzYgNy41LTcuNSA3LjV6Ii8+PC9zdmc+");
+    -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyYzAgMi4xNy43NiA0LjE2IDIuMDQgNS43MEwuMTMgMjIuODhjLS4xNS4zNS0uMDUuNzUuMjQgMS4wMy4yOC4yOC42OC4zOCAxLjAzLjI0bDUuMTgtMS45MUM4LjE3IDIzLjI0IDEwLjAyIDI0IDEyIDI0YzUuNTIgMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtMS4zOSAwLTIuNzEtLjMyLTMuODgtLjkxbC0uMjctLjE0LTMuMjYgMS4yIDEuMTEtMy4wMy0uMTUtLjI3QzQuOTQgMTQuNDUgNC41IDEzLjI2IDQuNSAxMmMwLTQuMTQgMy4zNi03LjUgNy41LTcuNXM3LjUgMy4zNiA3LjUgNy41LTMuMzYgNy41LTcuNSA3LjV6Ii8+PC9zdmc+");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+
+.aida-preview-chat.pos-right { right: 12px; }
+.aida-preview-chat.pos-left { left: 12px; }
+.aida-preview-chat.state-open { width: 80px; height: 32px; border-radius: 16px; }
+
+/* Stats Mockup */
+.aida-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.aida-stat-box {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.aida-stat-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--aida-primary);
+}
+
+.aida-stat-label {
+    font-size: 11px;
+    color: var(--aida-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* WP Overrides */
 .aida-wrap #setting-error-settings_updated {
     max-width: 1000px;

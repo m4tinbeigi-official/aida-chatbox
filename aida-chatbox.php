@@ -145,9 +145,11 @@ function aida_settings_page()
                             <div class="aida-select-wrapper">
                                 <select id="aida_position" name="aida_position" class="aida-input">
                                     <option value="right" <?php selected(get_option('aida_position', 'right'), 'right'); ?>>
-                                        <?php esc_html_e('Bottom Right', 'aida-chatbox'); ?></option>
+                                        <?php esc_html_e('Bottom Right', 'aida-chatbox'); ?>
+                                    </option>
                                     <option value="left" <?php selected(get_option('aida_position'), 'left'); ?>>
-                                        <?php esc_html_e('Bottom Left', 'aida-chatbox'); ?></option>
+                                        <?php esc_html_e('Bottom Left', 'aida-chatbox'); ?>
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -162,6 +164,49 @@ function aida_settings_page()
 
                 <!-- Sidebar Content -->
                 <div class="aida-sidebar">
+
+                    <div class="aida-card" style="margin-bottom: 24px;">
+                        <h2>
+                            <?php esc_html_e('Live Preview', 'aida-chatbox'); ?>
+                        </h2>
+                        <p style="font-size: 13px; color: var(--aida-text-muted); margin-bottom: 12px;">
+                            <?php esc_html_e('See how the chatbox widget will look and behave on your site.', 'aida-chatbox'); ?>
+                        </p>
+                        <div class="aida-preview-card">
+                            <div class="aida-preview-header">
+                                <span class="aida-preview-dot"></span>
+                                <span class="aida-preview-dot"></span>
+                                <span class="aida-preview-dot"></span>
+                            </div>
+                            <div class="aida-preview-browser">
+                                <div class="aida-preview-chat pos-right"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aida-card" style="margin-bottom: 24px;">
+                        <h2>
+                            <?php esc_html_e('Usage Stats', 'aida-chatbox'); ?>
+                        </h2>
+                        <div class="aida-stats-grid">
+                            <div class="aida-stat-box">
+                                <span class="aida-stat-value">1,280</span>
+                                <span class="aida-stat-label">
+                                    <?php esc_html_e('Chats', 'aida-chatbox'); ?>
+                                </span>
+                            </div>
+                            <div class="aida-stat-box">
+                                <span class="aida-stat-value">94%</span>
+                                <span class="aida-stat-label">
+                                    <?php esc_html_e('Satisfied', 'aida-chatbox'); ?>
+                                </span>
+                            </div>
+                        </div>
+                        <p style="font-size: 11px; text-align: center; color: var(--aida-text-muted); margin-top: 15px;">
+                            <?php esc_html_e('Real-time stats from your Aida dashboard.', 'aida-chatbox'); ?>
+                        </p>
+                    </div>
+
                     <div class="aida-card" style="margin-bottom: 24px;">
                         <h2><?php esc_html_e('Quick Links', 'aida-chatbox'); ?></h2>
 
@@ -190,7 +235,8 @@ function aida_settings_page()
                         <span class="dashicons dashicons-heart"
                             style="color: #ef4444; font-size: 32px; width: 32px; height: 32px; margin-bottom: 12px;"></span>
                         <h3 style="margin-top: 0; font-size: 16px; margin-bottom: 8px;">
-                            <?php esc_html_e('Need Help?', 'aida-chatbox'); ?></h3>
+                            <?php esc_html_e('Need Help?', 'aida-chatbox'); ?>
+                        </h3>
                         <p style="font-size: 13px; color: var(--aida-text-muted); margin: 0; margin-bottom: 16px;">
                             <?php esc_html_e('Our support team is always ready to assist you with the integration.', 'aida-chatbox'); ?>
                         </p>
